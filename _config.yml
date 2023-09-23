@@ -58,9 +58,9 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "First Lastname"
+  name   : "Enric Reverter"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  bio    : "Unraveling data, diving into books, and mastering calisthenics as my trifecta."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
