@@ -1,0 +1,47 @@
+---
+layout: archive
+---
+
+{{ content }}
+
+<!-- New section for Featured Projects -->
+<div class="featured-projects">
+  <h3 class="archive__subtitle">Featured Projects</h3>
+  <div class="grid__wrapper">
+    {% assign sorted_projects = site.projects | where: "featured", true | sort: "order" %}
+    {% for project in sorted_projects limit:4 %}
+      {% if project.featured %}
+        <div class="grid__item">
+          <a href="{{ project.github_url }}" target="_blank">
+            <img src="{{ project.image_path }}" alt="{{ project.title }}" class="project-image">
+            <h2 class="project-title">{{ project.title }}</h2>
+          </a>
+          <p class="project-description">{{ project.description }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+<!-- End of new section -->
+
+
+
+<!-- Recent Posts section -->
+<div class="recent-posts">
+  <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+  
+  <!-- Existing code for recent posts -->
+  {% if paginator %}
+    {% assign posts = paginator.posts %}
+  {% else %}
+    {% assign posts = site.posts %}
+  {% endif %}
+
+  <div class="entries-{{ entries_layout }}">
+    {% for post in posts %}
+      {% include archive-single.html type=entries_layout %}
+    {% endfor %}
+  </div>
+
+  {% include paginator.html %}
+</div>

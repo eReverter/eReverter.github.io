@@ -1,0 +1,53 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+search: false
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+.featured-projects {
+  margin-bottom: 2em;
+}
+
+.grid__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(calc(50% - 0.5em), 1fr)); /* 2 items in one row */
+  gap: 1em;
+}
+
+.grid__item {
+  text-align: center;
+  background-color: #f4f4f4; /* Background color for each item */
+  padding: 1em;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  width: 85%; /* Adjust the width as needed */
+}
+
+.grid__item:hover {
+  transform: scale(1.05);
+}
+
+.project-image {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Rounded corners for the image */
+}
+
+.project-title {
+  margin: 0.5em 0;
+  font-size: 1.2em; /* Adjust the title font size */
+}
+
+.project-title a {
+  text-decoration: none; /* Remove underline from the title link */
+  color: #333; /* Adjust the title link color */
+}
+
+.project-description {
+  font-size: 0.7em;
+  color: #666;
+}
