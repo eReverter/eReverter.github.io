@@ -6,10 +6,10 @@ layout: archive
 
 <!-- New section for Featured Projects -->
 <div class="featured-projects">
-  <h3 class="archive__subtitle">Featured Projects</h3>
+  <h3 class="archive__subtitle">Recent Projects</h3>
   <div class="grid__wrapper">
     {% assign sorted_projects = site.projects | where: "featured", true | sort: "order" %}
-    {% for project in sorted_projects limit:4 %}
+    {% for project in sorted_projects limit:3 %}
       {% if project.featured %}
         <div class="grid__item">
           <a href="{{ project.github_url }}" target="_blank">
