@@ -25,3 +25,13 @@ If you have a question about using Jekyll, start a discussion on the [Jekyll For
 - [Ruby 101](https://jekyllrb.com/docs/ruby-101/)
 - [Setting up a Jekyll site with GitHub Pages](https://jekyllrb.com/docs/github-pages/)
 - [Configuring GitHub Metadata](https://github.com/jekyll/github-metadata/blob/master/docs/configuration.md#configuration) to work properly when developing locally and avoid `No GitHub API authentication could be found. Some fields may be missing or have incorrect data.` warnings.
+
+## To-Do
+- Improve the tag filter design in the portfolio
+- Improve the recent projects in the main page
+- Add picture
+- Add About
+- Add the drop down menu at the top-right corner
+- Add Home button
+- Add date instead of year and parse the year in the projects
+- Change link from relative page to github source code / demos for now

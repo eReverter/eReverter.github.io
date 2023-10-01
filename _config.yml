@@ -97,10 +97,10 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _projects
+  # _portfolio
   - scope:
-      path: "_projects"
-      type: projects
+      path: "_portfolio"
+      type: portfolio
     values:
       layout: single
       author_profile: true
@@ -113,5 +113,5 @@ tag_archive:
   path: /tags/
 
 collections:
-  projects:
+  portfolio:
     output: true

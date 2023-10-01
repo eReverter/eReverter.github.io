@@ -1,0 +1,178 @@
+---
+layout: archive
+---
+
+{{ content }}
+
+{% assign portfolio_by_year = site.portfolio | where_exp: "item", "item.hidden != true" | group_by_exp: 'project', 'project.year' %}
+
+<ul class="taxonomy__index">
+  {% for year in portfolio_by_year %}
+    <li>
+      <a href="#{{ year.name }}">
+        <strong>{{ year.name }}</strong> <span class="taxonomy__count">{{ year.items | size }}</span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+<!-- Tag Filter -->
+<div id="tag-filter">
+  <div style="font-size: 0.9em;">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].tags_label | default: "Tags:" }} </strong>
+    <span id="selected-tags" itemprop="keywords"></span>
+  </div>
+  <div style="margin-top: 10px; display: flex; align-items: center;">
+    <select id="tag-select" onchange="filterByTag()" style="font-size: 0.8em; margin-right: 10px;">
+      <option value="" disabled hidden selected>Select</option>
+          {% assign tags = "" | split: "," %}
+          {% for project in site.portfolio %}
+            {% for tag in project.tags %}
+              {% unless tags contains tag or selectedTags contains tag %}
+                {% assign tags = tags | push: tag %}
+              {% endunless %}
+            {% endfor %}
+          {% endfor %}
+          {% assign tags = tags | sort %}
+          {% for tag in tags %}
+            <option value="{{ tag }}">{{ tag }}</option>  <!-- Updated line -->
+          {% endfor %}
+      </select>  
+
+    <!-- Toggle Switch -->
+    <!-- <label class="switch">
+      <input type="checkbox" id="filterToggle" onclick="toggleFilterMode()">
+      <span class="slider round"></span>
+    </label>
+    <span id="toggleLabel" style="margin-left: 5px;">Match All Tags</span> -->
+    
+  </div>
+</div>
+
+<!-- Remove all tags element -->
+<div class="remove-all-tags-section">
+  <a href="#" id="remove-all-tags" onclick="removeAllTags()" style="display: none;" class="remove-all-tags">Remove All Tags &times;</a>
+</div>
+
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+{% for year in portfolio_by_year %}
+  <section id="{{ year.name }}" class="taxonomy__section">
+    <h2 class="archive__subtitle">{{ year.name }}</h2>
+    <div class="entries-{{ entries_layout }}">
+      {% for project in year.items %}
+        <article class="archive__item" data-tags="{{ project.tags | join:',' }}">
+          <h3 class="archive__item-title">
+            <a href="{{ project.url | relative_url }}" rel="permalink">{{ project.title }}</a>
+          </h3>
+          <p class="archive__item-excerpt">{{ project.description }}</p>
+          <!-- ... other project details ... -->
+        </article>
+      {% endfor %}
+    </div>
+    <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+  </section>
+{% endfor %}
+
+<!-- Java thingies -->
+<script>
+
+  var selectedTags = [];
+  var isAndFilter = true;  // Default to AND filtering
+
+  function toggleFilterMode() {
+    isAndFilter = !isAndFilter;
+    document.getElementById('toggleLabel').innerText = isAndFilter ? 'Match All Tags' : 'Match Any Tag';
+    filterProjects();  // Re-filter projects whenever the mode is toggled
+  }
+
+  function filterByTag() {
+    var tag = document.getElementById('tag-select').value;
+    if(tag && !selectedTags.includes(tag)) {
+      selectedTags.push(tag);
+      displaySelectedTags();
+    }
+
+    // Reset the dropdown
+    document.getElementById('tag-select').value = "";
+
+    // Remove the selected tag from the dropdown
+    var selectedOption = document.querySelector('#tag-select option[value="'+tag+'"]');
+    if(selectedOption) {
+      selectedOption.remove();
+    }
+    filterProjects();  // Add this line to filter projects when a tag is added
+}
+
+  function displaySelectedTags() {
+    var container = document.getElementById('selected-tags');
+    var tagHtml = '';
+    selectedTags.forEach(function(tag, index) {
+      tagHtml += `
+        <a href="#" class="page__taxonomy-item p-category" rel="tag" onclick="removeTag('${tag}')">${tag}
+          <span class="tag-clear-icon" style="cursor: pointer;">✖</span>
+        </a>`;
+      if (index !== selectedTags.length - 1) {
+        tagHtml += '<span class="sep"> </span>';
+      }
+    });
+    container.innerHTML = tagHtml;
+
+    var removeAllTagsElement = document.getElementById('remove-all-tags');
+    removeAllTagsElement.style.display = selectedTags.length > 0 ? 'block' : 'none';
+}
+
+function removeTag(tag) {
+  var index = selectedTags.indexOf(tag);
+  if (index > -1) {
+    selectedTags.splice(index, 1);
+    displaySelectedTags();
+    filterProjects();
+  }
+
+  // Re-add the deselected tag to the dropdown
+  var tagOption = document.createElement("option");
+  tagOption.value = tag;
+  tagOption.text = tag;
+  var select = document.getElementById('tag-select');
+  select.appendChild(tagOption);
+
+  // Sort the dropdown options, excluding the "Filter" option
+  var optionsArray = Array.from(select.options).slice(1);
+  optionsArray.sort((a, b) => a.text.localeCompare(b.text));
+  select.innerHTML = '<option value="" disabled hidden selected>Filter</option>';
+  optionsArray.forEach(option => select.add(option));
+}
+
+function removeAllTags() {
+  // Re-add all deselected tags to the dropdown
+  selectedTags.forEach(tag => {
+    var tagOption = document.createElement("option");
+    tagOption.value = tag;
+    tagOption.text = tag;
+    document.getElementById('tag-select').add(tagOption);
+  });
+
+  selectedTags = [];
+  displaySelectedTags();
+  filterProjects();
+
+  // Sort the dropdown options, excluding the "Filter" option
+  var select = document.getElementById('tag-select');
+  var optionsArray = Array.from(select.options).slice(1);
+  optionsArray.sort((a, b) => a.text.localeCompare(b.text));
+  select.innerHTML = '<option value="" disabled hidden selected>Filter</option>';
+  optionsArray.forEach(option => select.add(option));
+}
+
+function filterProjects() {
+  var items = document.querySelectorAll('.archive__item');
+  items.forEach(function(item) {
+    var itemTags = item.getAttribute('data-tags').split(',');
+    var show = isAndFilter 
+      ? selectedTags.every(tag => itemTags.includes(tag))  // AND logic
+      : selectedTags.some(tag => itemTags.includes(tag));  // OR logic
+    item.style.display = show ? 'block' : 'none';
+  });
+  }
+
+</script>
