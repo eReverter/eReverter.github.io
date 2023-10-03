@@ -63,7 +63,7 @@ layout: archive
       {% for project in year.items %}
         <article class="archive__item" data-tags="{{ project.tags | join:',' }}">
           <h3 class="archive__item-title">
-            <a href="{{ project.url | relative_url }}" rel="permalink">{{ project.title }}</a>
+            <a href="{{ project.github_url }}" rel="permalink">{{ project.title }}</a>
           </h3>
           <p class="archive__item-excerpt">{{ project.description }}</p>
         </article>

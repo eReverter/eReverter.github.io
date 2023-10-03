@@ -59,7 +59,7 @@ plugins:
 
 author:
   name   : "Enric Reverter"
-  avatar : "/assets/images/bio-photo.png"
+  avatar : "/assets/images/bio-photo.jpg"
   bio    : "Unraveling data, diving into books, and mastering calisthenics as my trifecta."
   links:
     - label: "GitHub"
@@ -77,6 +77,9 @@ footer:
     - label: "Goodreads"
       icon: "fab fa-fw fa-goodreads"
       url: "https://goodreads.com/ereverter"
+    - label: "Linkedin"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/ereverterlopez/"
 
 defaults:
   # _posts

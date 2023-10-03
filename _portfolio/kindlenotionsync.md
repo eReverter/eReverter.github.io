@@ -1,14 +1,20 @@
 ---
-title: "Kindle to Notion"
-# layout: collection
-# permalink: /portfolio/kindle-to-notion/
+title: "Kindle &lt;Highlights and Notes&gt; to Notion"
+short_title: "Kindle to Notion Parser"
 collection: portfolio
 classes: wide
-description: "Parser that automatically writes the <Notes and Highlights> from Kindle exported HTMLs into a Notion page."
+description: "An automated parser for transcribing Kindle notes and highlights directly into a Notion page, simplifying the process of consolidating and revisiting key takeaways from readings."
+short_description: "Automated transcription of Kindle notes to Notion."
 image_path: "/assets/images/kindlenotionsync.jpg"
 github_url: "https://github.com/ereverter/kindlenotionsync"
 featured: true
 order: 4
-tags: python notion kindle parser html automation
+tags: python notion html automation api
 date: 2023-01-22
 ---
+
+Description
+-----------
+{{ page.description }}
+
+Check the [GitHub repository]({{ page.github_url }}) for more details.

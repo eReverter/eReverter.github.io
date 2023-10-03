@@ -16,13 +16,13 @@ layout: archive
           {% if project.featured %}
             <article class="grid__item">
               <a href="{{ project.github_url }}" target="_blank">
-                <img src="{{ project.image_path }}" alt="{{ project.title }}" class="archive__item-teaser">
+                <img src="{{ project.image_path }}" alt="{{ project.short_title }}" class="archive__item-teaser">
               </a>
               <h2 class="archive__item-title">
-                <a href="{{ project.github_url }}" target="_blank">{{ project.title }}</a>
+                <a href="{{ project.github_url }}" target="_blank">{{ project.short_title }}</a>
               </h2>
               <p class="archive__item-excerpt">
-                {{ project.description }}
+                {{ project.short_description }}
               </p>
             </article>
           {% endif %}
