@@ -68,6 +68,9 @@ author:
     - label: "Goodreads"
       icon: "fab fa-fw fa-goodreads"
       url: "https://goodreads.com/ereverter"
+    - label: "Linkedin"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/ereverterlopez/"
 
 footer:
   links:
