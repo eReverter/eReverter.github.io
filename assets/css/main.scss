@@ -13,24 +13,24 @@ search: false
   margin-bottom: 2em;
 }
 
-.grid__wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, calc(33.333% - 0.25em)); /* 3 items in one row with gaps */
-  gap: 1em;
-}
+// .grid__wrapper {
+//   display: grid;
+//   grid-template-columns: repeat(3, calc(33.333% - 0.25em)); /* 3 items in one row with gaps */
+//   gap: 1em;
+// }
 
-.grid__item {
-  text-align: center;
-  background-color: #f4f4f4; /* Background color for each item */
-  padding: 1em;
-  border-radius: 10px;
-  transition: transform 0.3s ease-in-out;
-  width: 85%; /* Adjust the width as needed */
-}
+// .grid__item {
+//   text-align: center;
+//   // background-color: #f4f4f4; /* Background color for each item */
+//   padding: 1em;
+//   border-radius: 10px;
+//   transition: transform 0.3s ease-in-out;
+//   width: 85%; /* Adjust the width as needed */
+// }
 
-.grid__item:hover {
-  transform: scale(1.05);
-}
+// .grid__item:hover {
+//   transform: scale(1.05);
+// }
 
 .project-image {
   width: 100%;

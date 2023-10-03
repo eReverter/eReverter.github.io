@@ -2,46 +2,53 @@
 layout: archive
 ---
 
-{{ content }}
+{{ content }}                                   
 
-<!-- New section for Featured Projects -->
-<div class="featured-projects">
-  <h3 class="archive__subtitle">Recent Projects</h3>
-  <div class="grid__wrapper">
-    {% assign sorted_projects = site.portfolio | where: "featured", true | sort: "order" %}
-    {% for project in sorted_projects limit:3 %}
-      {% if project.featured %}
-        <div class="grid__item">
-          <a href="{{ project.github_url }}" target="_blank">
-            <img src="{{ project.image_path }}" alt="{{ project.title }}" class="project-image">
-            <h2 class="project-title">{{ project.title }}</h2>
-          </a>
-          <p class="project-description">{{ project.description }}</p>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-</div>
-<!-- End of new section -->
+  <!-- New section for Featured Projects -->
+  <div class="featured-projects" style="margin-bottom: 2em; clear: both;">
+    <h3 class="archive__subtitle">Featured Projects</h3>
+    
+    <!-- Grid Layout for Projects -->
+    <div class="entries-grid">
+      <div class="grid__wrapper">
+        {% assign sorted_projects = site.portfolio | where: "featured", true | sort: "order" %}
+        {% for project in sorted_projects limit:3 %}                
+          {% if project.featured %}
+            <article class="grid__item">
+              <a href="{{ project.github_url }}" target="_blank">
+                <img src="{{ project.image_path }}" alt="{{ project.title }}" class="archive__item-teaser">
+              </a>
+              <h2 class="archive__item-title">
+                <a href="{{ project.github_url }}" target="_blank">{{ project.title }}</a>
+              </h2>
+              <p class="archive__item-excerpt">
+                {{ project.description }}
+              </p>
+            </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  <!-- End of new section -->
 
-
-
-<!-- Recent Posts section -->
-<div class="recent-posts">
-  <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+  <!-- Recent Posts section -->
+  <div class="recent-posts" style="clear: both;">
+    <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+    
+    <!-- Existing code for recent posts -->
+    {% if paginator %}
+      {% assign posts = paginator.posts %}
+    {% else %}
+      {% assign posts = site.posts %}
+    {% endif %}
   
-  <!-- Existing code for recent posts -->
-  {% if paginator %}
-    {% assign posts = paginator.posts %}
-  {% else %}
-    {% assign posts = site.posts %}
-  {% endif %}
-
-  <div class="entries-{{ entries_layout }}">
-    {% for post in posts %}
-      {% include archive-single.html type=entries_layout %}
-    {% endfor %}
+    <div class="entries-{{ entries_layout }}">
+      {% for post in posts %}
+        {% include archive-single.html type=entries_layout %}
+      {% endfor %}
+    </div>
+  
+    {% include paginator.html %}
   </div>
 
-  {% include paginator.html %}
-</div>
+</div>  <!-- End of content-wrapper -->

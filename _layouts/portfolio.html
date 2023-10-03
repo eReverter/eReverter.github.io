@@ -4,7 +4,8 @@ layout: archive
 
 {{ content }}
 
-{% assign portfolio_by_year = site.portfolio | where_exp: "item", "item.hidden != true" | group_by_exp: 'project', 'project.year' %}
+{% assign sorted_portfolio = site.portfolio | where_exp: "item", "item.hidden != true" | sort: 'date' | reverse %}
+{% assign portfolio_by_year = sorted_portfolio | group_by_exp: "item", "item.date | date: '%Y'" %}
 
 <ul class="taxonomy__index">
   {% for year in portfolio_by_year %}
@@ -45,7 +46,7 @@ layout: archive
       <span class="slider round"></span>
     </label>
     <span id="toggleLabel" style="margin-left: 5px;">Match All Tags</span> -->
-    
+
   </div>
 </div>
 
@@ -65,7 +66,6 @@ layout: archive
             <a href="{{ project.url | relative_url }}" rel="permalink">{{ project.title }}</a>
           </h3>
           <p class="archive__item-excerpt">{{ project.description }}</p>
-          <!-- ... other project details ... -->
         </article>
       {% endfor %}
     </div>

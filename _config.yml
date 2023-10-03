@@ -59,7 +59,7 @@ plugins:
 
 author:
   name   : "Enric Reverter"
-  avatar : "/assets/images/bio-photo.jpg"
+  avatar : "/assets/images/bio-photo.png"
   bio    : "Unraveling data, diving into books, and mastering calisthenics as my trifecta."
   links:
     - label: "GitHub"

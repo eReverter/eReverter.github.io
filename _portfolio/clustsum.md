@@ -10,5 +10,5 @@ github_url: "https://github.com/eReverter/clustsum"
 featured: true
 order: 3
 tags: summarization extractive abstractive transformer huggingface pytorch python
-year: 2023
+date: 2023-08-11
 ---
