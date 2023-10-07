@@ -9,7 +9,7 @@ image_path: "/assets/images/time-series-asm.png"
 github_url: "https://github.com/ereverter/time-series-asm"
 featured: false
 order: 4
-tags: R time-series
+tags: r time-series
 date: 2022-12-27
 ---
 

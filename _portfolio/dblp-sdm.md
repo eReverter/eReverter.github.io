@@ -9,7 +9,7 @@ image_path: "/assets/images/sdm.png"
 github_url: "https://github.com/ereverter/dblp-semantic-data-management"
 featured: false
 order: 4
-tags: Neo4j Pregel GraphDB graph-embeddings machine-learning cypher graph
+tags: neo4j pregel graphDB graph-embeddings machine-learning cypher graph
 date: 2023-06-01
 ---
 
