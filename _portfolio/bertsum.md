@@ -9,7 +9,7 @@ image_path: "/assets/images/bertsum.png"
 github_url: "https://github.com/eReverter/bertsum-hf"
 featured: true
 order: 2
-tags: transformers summarization huggingface pytorch python model-finetuning
+tags: transformers nlp summarization huggingface pytorch python model-finetuning
 date: 2023-05-01
 ---
 
