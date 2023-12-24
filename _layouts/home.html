@@ -2,34 +2,49 @@
 layout: archive
 ---
 
-{{ content }}                                   
+{{ content }}             
 
-  <!-- New section for Featured Projects -->
-  <div class="featured-projects" style="margin-bottom: 2em; clear: both;">
-    <h3 class="archive__subtitle">Featured Projects</h3>
-    
-    <!-- Grid Layout for Projects -->
-    <div class="entries-grid">
-      <div class="grid__wrapper">
-        {% assign sorted_projects = site.portfolio | where: "featured", true | sort: "order" %}
-        {% for project in sorted_projects limit:3 %}                
-          {% if project.featured %}
-            <article class="grid__item">
-              <a href="{{ project.github_url }}" target="_blank">
-                <img src="{{ project.image_path }}" alt="{{ project.short_title }}" class="archive__item-teaser">
-              </a>
-              <h2 class="archive__item-title">
-                <a href="{{ project.github_url }}" target="_blank">{{ project.short_title }}</a>
-              </h2>
-              <p class="archive__item-excerpt">
-                {{ project.short_description }}
-              </p>
-            </article>
-          {% endif %}
-        {% endfor %}
-      </div>
+<!-- New Introduction Section -->
+<div class="introduction-section" style="margin-bottom: 2em;">
+  <h3>ML Engineer</h3>
+  <p>
+    I'm just someone who enjoys the complexities and challenges of data. My worldview is often guided by Bayesian thinking, even though I confess to occasionally falling prey to cognitive biases.</p>
+  </p>
+    I am an engineer with a Master's in Data Science, and as an almost-avid reader, I've naturally cultivated a keen interest in Natural Language Processing. On a lighter note, I'm a calisthenics amateur.
+  </p>
+</div>
+
+<!-- New section for Featured Projects -->
+<div class="featured-projects" style="margin-bottom: 2em; clear: both;">
+  <h3 class="archive__subtitle">Recent Stuff</h3>
+  
+  <!-- Grid Layout for Projects -->
+  <div class="entries-grid">
+    <div class="grid__wrapper">
+      {% assign sorted_projects = site.portfolio | where: "featured", true | sort: "order" %}
+      {% for project in sorted_projects limit:3 %}                
+        {% if project.featured %}
+          <article class="grid__item">
+            <a href="{{ project.github_url }}" target="_blank">
+              <img src="{{ project.image_path }}" alt="{{ project.short_title }}" class="archive__item-teaser">
+            </a>
+            <h2 class="archive__item-title">
+              <a href="{{ project.github_url }}" target="_blank">{{ project.short_title }}</a>
+            </h2>
+            <p class="archive__item-excerpt">
+              {{ project.short_description }}
+            </p>
+          </article>
+        {% endif %}
+      {% endfor %}
     </div>
-  <!-- End of new section -->
+  </div>
+
+<!-- See More Projects Link -->
+<div style="text-align: center">
+  <a href="{{ '/portfolio/' | relative_url }}" class="btn">See More Stuff</a>
+</div>
+<!-- End of new section -->
 
   <!-- Recent Posts section -->
   <div class="recent-posts" style="clear: both;">

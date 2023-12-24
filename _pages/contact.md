@@ -1,7 +1,6 @@
 ---
-title: "Contact"
-layout: single
 permalink: /contact/
+title: "Contact"
 ---
 
 <form action="https://formspree.io/f/xleyqlwj" method="POST">

@@ -7,7 +7,7 @@ description: "A time-series analysis to predict the number of flu cases in the U
 short_description: "Time-series analysis to predict the number of flu cases in the USA."
 image_path: "/assets/images/time-series-asm.png"
 github_url: "https://github.com/ereverter/time-series-asm"
-featured: false
+featured: true
 order: 4
 tags: r time-series
 date: 2022-12-27

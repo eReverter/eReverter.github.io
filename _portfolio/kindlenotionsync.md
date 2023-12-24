@@ -7,7 +7,7 @@ description: "An automated parser for transcribing Kindle notes and highlights d
 short_description: "Automated transcription of Kindle notes to Notion."
 image_path: "/assets/images/kindlenotionsync.jpg"
 github_url: "https://github.com/ereverter/kindlenotionsync"
-featured: true
+featured: false
 order: 4
 tags: python notion html automation api
 date: 2023-01-22

@@ -8,7 +8,7 @@ short_description: "OCR pipeline to process book pages. From image dewarping to 
 image_path: "/assets/images/ocr.jpg"
 github_url: "https://github.com/ereverter/ocr-book-pages"
 featured: true
-order: 1
+order: 2
 tags: python ocr tesseract opencv streamlit automation deployment
 date: 2023-09-29
 ---

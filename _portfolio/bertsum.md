@@ -8,7 +8,7 @@ short_description: "Fine-tuned BERT for extractive summarization. Abstractive to
 image_path: "/assets/images/bertsum.png"
 github_url: "https://github.com/ereverter/bertsum-hf"
 featured: true
-order: 2
+order: 3
 tags: transformers nlp summarization huggingface pytorch python model-finetuning
 date: 2023-05-01
 ---

@@ -7,7 +7,7 @@ description: "Property Graphs (utilizing Neo4j), Distributed Graphs (leveraging 
 short_description: "Graph databases and graph embeddings for ML."
 image_path: "/assets/images/sdm.png"
 github_url: "https://github.com/ereverter/dblp-semantic-data-management"
-featured: false
+featured: true
 order: 4
 tags: neo4j pregel graphDB graph-embeddings machine-learning cypher graph
 date: 2023-06-01

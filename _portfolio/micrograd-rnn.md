@@ -7,7 +7,7 @@ description: "An extension of Andrej Karpathy's Micrograd to include support for
 short_description: "Adding RNN capabilities to the minimalistic neural network framework, Micrograd."
 image_path: "/assets/images/rnn.png"
 github_url: "https://github.com/ereverter/micrograd-rnn"
-featured: false
+featured: true
 order: 4
 tags: python neural-networks rnn machine-learning
 date: 2023-05-22
