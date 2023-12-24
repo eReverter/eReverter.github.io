@@ -6,7 +6,7 @@ classes: wide
 description: "Implementation of Lamsiyah et al. (2021) for unsupervised multi-document extractive summarization, employing transformer and compression-based embeddings, supported by a three-dimensional scoring system for document/sentence relevance."
 short_description: "Implementing Lamsiyah et al. (2021) for unsupervised text summarization using different compression techniques."
 image_path: "/assets/images/clustsum.png"
-github_url: "https://github.com/eReverter/clustsum"
+github_url: "https://github.com/ereverter/clustsum"
 featured: true
 order: 3
 tags: clustering summarization transformers compression pytorch python nlp

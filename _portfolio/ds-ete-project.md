@@ -6,7 +6,7 @@ classes: wide
 description: "This project develops a data management and analysis pipeline to cluster countries based on multiple indicators such as economical, geo-political, and governmental data. SQL is used for the data warehouse, Python for the data analysis."
 short_description: "A comprehensive data science pipeline for clustering Asian countries, focusing on automation and streamlined data management."
 image_path: "/assets/images/ds-ete.jpg"
-github_url: "https://github.com/eReverter/ds-ete-project"
+github_url: "https://github.com/ereverter/ds-ete-project"
 featured: false
 order: 4
 tags: python sql clustering machine-learning

@@ -16,7 +16,7 @@ permalink: /contact/
     <div class="form-group">
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="3" required maxlength="500" placeholder="Your message"></textarea>
-        <div id="message-count" style="text-align: right; color: #555;">0/500</div>
+        <div id="message-count" style="text-align: right; color: #555; font-size: 0.75em;">0/500</div>
     </div>
     <div style="margin-top: -10px;">
         <button type="submit">Send</button>
